@@ -1,9 +1,8 @@
 #include <unistd.h>
-
 /**
-* _putchar - Writes the character c to stdout
-* @c: The character to print
-* @p: pointer to update the length
+* _putchar - writes char c to stdout
+* @c: char to print
+* @p: pointer to update length
 *
 * Return: On success 1.
 * On error, -1 is returned, and errno is set appropriately.
