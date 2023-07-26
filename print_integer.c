@@ -1,8 +1,7 @@
 #include "shell.h"
-
 /**
-  * print_Number - Prints a decimal and integer
-  * @n: Number to be printed
+  * print_Number - prints a decimal and integer
+  * @n: no to be printed
   * @p: Pointer to determine length
   *
   * Return: Number of digits of n
