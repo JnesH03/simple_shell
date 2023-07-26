@@ -1,10 +1,9 @@
 #include "shell.h"
-
 /**
-  * func_env - this function will search for a PATH
-  * @_com: the command to search in the PATH
-  * @env: an array of arrays containing the path
-  * @no_path: counts the number of elements inside PATH variable
+  * func_env - function will search for a PATH
+  * @_com: command to search in the PATH
+  * @env: an array of arrays containing path
+  * @no_path: counts the no of elements inside PATH variable
   *
   * Return: A string containing the path or NULL
   */
