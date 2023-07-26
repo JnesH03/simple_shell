@@ -1,8 +1,7 @@
 #include "shell.h"
-
 /**
- *main - function to control the shell process
- *@ac:main argument, number of arguments
+ *main - function to control shell process
+ *@ac:main argument, no of arguments
  *@av:main argument, array of arguments
  *@env:main argument, environmental variable
  *
