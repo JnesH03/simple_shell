@@ -1,12 +1,11 @@
 #include "shell.h"
-
 /**
-  * _realloc - Function that reallocates a memory block
+  * _realloc - function that reallocates memory block
   * @ptr: Block of memory to reallocatre
   * @old_size: Size of memorry occupied by ptr
   * @new_size: Size of the new memory to realloc
   *
-  * Return: A new reallocated string
+  * Return: new reallocated string
   */
 void *_realloc(void *ptr, int old_size, int new_size)
 {
