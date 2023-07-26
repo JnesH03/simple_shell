@@ -1,50 +1,70 @@
-#include "main.h"
-/**
-* main - carries out the read, execute then print output loop
-* @ac: argument count
-* @av: argument vector
-* @envp: environment vector
-*
-* Return: 0
-*/
+#include "shell.h"
 
-int main(int ac, char **av, char *envp[])
+/**
+ *main - function to control the shell process
+ *@ac:main argument, number of arguments
+ *@av:main argument, array of arguments
+ *@env:main argument, environmental variable
+ *
+ *Return: 0 on success
+ */
+
+int main(int ac, char **av, char **env)
 {
-	char *line = NULL, *pathcommand = NULL, *path = NULL;
-	size_t bufsize = 0;
-	ssize_t linesize = 0;
-	char **command = NULL, **paths = NULL;
-	(void)envp, (void)av;
-	if (ac < 1)
-		return (-1);
-	signal(SIGINT, handle_signal);
-	while (1)
+	char *_str = NULL, *no_command = "\n";
+	char **_args = NULL;
+	int _report = 1, kill_is = 0, cicles = 1;
+	size_t _size_str;
+
+	kill_is = isatty(STDIN_FILENO);
+	if (kill_is)
+		_printf("#cisfun$ ");
+	while (_report && (getline(&_str, &_size_str, stdin) != EOF))
 	{
-		free_buffers(command);
-		free_buffers(paths);
-		free(pathcommand);
-		prompt_user();
-		linesize = getline(&line, &bufsize, stdin);
-		if (linesize < 0)
-			break;
-		info.ln_count++;
-		if (line[linesize - 1] == '\n')
-			line[linesize - 1] = '\0';
-		command = tokenizer(line);
-		if (command == NULL || *command == NULL || **command == '\0')
-			continue;
-		if (checker(command, line))
-			continue;
-		path = find_path();
-		paths = tokenizer(path);
-		pathcommand = test_path(paths, command[0]);
-		if (!pathcommand)
-			perror(av[0]);
-		else
-			execution(pathcommand, command);
+		if (fun_count(_str) > 0)
+		{
+			if (_strcmp(_str, no_command) != 0)
+			{
+				_args = token_arg(_str);
+				_report = exec_fun(&cicles, _args, av, env);
+				free(_str);
+				free(_args);
+				_str = NULL;
+				_args = NULL;
+
+				if (kill_is && _report != 0)
+					_printf("#cisfun$ ");
+				cicles++;
+			}
+		}
+		else if (kill_is != 0)
+			_printf("#cisfun$ ");
+
 	}
-	if (linesize < 0 && flags.interactive)
-		write(STDERR_FILENO, "\n", 1);
-	free(line);
+
+	if (kill_is && _report != 0)
+		_printf("\n");
+	free(_str);
+	free(_args);
+	ac = ac;
 	return (0);
+}
+
+/**
+  *fun_count - counts the letter in a string
+  *@s:string to be evaluated
+  *
+  *Return: number of letters
+  */
+int fun_count(char *s)
+{
+	int i = 0, cont = 0;
+
+	while (s[i])
+	{
+		if (s[i] != ' ' && s[i] != '\t' && s[i] != '\n')
+			cont++;
+		i++;
+	}
+	return (cont);
 }
