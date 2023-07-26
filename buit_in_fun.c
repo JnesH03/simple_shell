@@ -1,8 +1,7 @@
 #include "shell.h"
-
 /**
-  *fun_cd - change the directory
-  *@_args:arguments with the information of location
+  *fun_cd - change directory
+  *@_args:arguments with info of location
   *
   *Return: Always 1
   */
