@@ -1,9 +1,8 @@
 #include "shell.h"
-
 /**
-  * printChar - it prints a single char
+  * printChar - prints single char
   * @p: pointer to len in _printf;
-  * @va: this is a varg argument
+  * @va: varg argument
   *
   *Return: Void
   */
