@@ -1,11 +1,10 @@
 #include "shell.h"
-
 /**
- *exec_handler - creates a child process and schedule execution
- *@_args: arguments to use in the execution of the program
- *@av: parameter to indicate the name of the shell
+ *exec_handler - createschild process and schedule execution
+ *@_args: arguments to use inexecution of program
+ *@av: parameter to indicate name of shell
  *@env:environ variable
- *@cicles: number of times parameters are passed
+ *@cicles: no of times parameters are passed
  *
  *Return: Integer 1 or 0
  */
