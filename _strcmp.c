@@ -1,7 +1,6 @@
 #include "shell.h"
-
 /**
- *_strcmp - Evaluate is the char is less , equal or higher thatn other string
+ *_strcmp - Evaluate is char less , equal or higher thatn other string
  *@s1: Destination string
  *@s2: Origin string
  *
